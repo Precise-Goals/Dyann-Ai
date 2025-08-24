@@ -1,0 +1,31 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Users can only access their own files
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Profile pictures - users can upload their own
+    match /profile-pictures/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Dashboard exports - users can only access their own
+    match /exports/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Public assets - anyone can read
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if false; // No writes to public assets
+    }
+    
+    // Default rule - deny all
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

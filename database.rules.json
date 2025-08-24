@@ -1,0 +1,38 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        ".validate": "newData.hasChildren(['email', 'displayName', 'createdAt'])"
+      }
+    },
+    "dashboard": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "reviews": {
+      "$reviewId": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == data.child('userId').val()",
+        ".validate": "newData.hasChildren(['content', 'rating', 'userId', 'createdAt'])"
+      }
+    },
+    "assistant": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "ai_suggestions": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    }
+  }
+}
