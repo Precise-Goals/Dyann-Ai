@@ -1,413 +1,502 @@
-# Dyann AI - Sales Data Analysis Platform
+# 🤖 Dyann.ai - AI-Powered Data Analyst Assistant
 
-**Built by Crossconnectors**
+> **Transform your data into actionable insights with natural language queries and voice-powered analysis**
 
-Dyann AI is a comprehensive sales data analysis platform that simplifies CSV data processing, provides powerful analytics, and offers AI assistance for business insights.
-
-## 🚀 Features
-
-### Core Functionality
-- **CSV Upload & Processing**: Drag-and-drop interface for sales data uploads
-- **Sales Analytics Dashboard**: Comprehensive metrics and visualizations
-- **AI Assistant**: Intelligent chat interface with voice capabilities
-- **Customer Reviews Management**: Complete review system with sentiment analysis
-- **Responsive Design**: Mobile-first approach with modern UI/UX
-- **Authentication**: Secure email/password authentication with Firebase
-- **AI Insights**: Gemini Flash 2.0 powered dashboard suggestions
-
-### Technical Features
-- **React 19**: Latest React features and performance optimizations
-- **Firebase Integration**: Authentication, Realtime Database, and Firestore
-- **Google Gemini AI**: Advanced AI suggestions and insights
-- **Modern CSS**: CSS custom properties, Grid, Flexbox, and animations
-- **Responsive Layout**: Optimized for all device sizes
-- **Component Architecture**: Modular, reusable components
-- **State Management**: React hooks for efficient state handling
-
-## 🎨 Design System
-
-### Color Scheme
-- **White-Black-Fresh (60-30-10 ratio)**
-- Primary: Fresh Cyan (#06b6d4)
-- Secondary: Dark Gray (#1e293b)
-- Accent: Light Gray (#f8fafc)
-
-### Typography
-- **Font Family**: Inter (system fallbacks)
-- **Scale**: 12px to 36px with consistent ratios
-- **Weights**: 400, 500, 600, 700
-
-### Components
-- **Buttons**: Primary, Secondary, Large variants
-- **Cards**: Consistent spacing and shadows
-- **Forms**: Accessible input styling
-- **Navigation**: Fixed header with mobile menu
-
-## 📱 Pages & Components
-
-### 1. Home Page
-- Hero section with call-to-action
-- Feature overview with icons
-- Modern gradient backgrounds
-
-### 2. Login/Authentication
-- Email/password authentication
-- User registration and login
-- Protected routes
-- User profile management
-
-### 3. Dyann Page (CSV Upload)
-- Drag-and-drop file upload
-- File validation and processing
-- Success/error handling
-- Feature preview
-
-### 4. Dashboard
-- Key metrics display
-- Sales performance analytics
-- Category distribution charts
-- Recent activity feed
-- **AI Insights**: Gemini-powered suggestions and recommendations
-
-### 5. AI Assistant
-- Chat interface with typing indicators
-- Voice input capabilities
-- Quick question suggestions
-- Chat export/import functionality
-
-### 6. Reviews Management
-- Customer feedback overview
-- Add/edit/delete reviews
-- Sentiment analysis
-- Rating system
-
-## 🛠️ Technology Stack
-
-- **Frontend**: React 19, Vite
-- **Backend Services**: Firebase (Auth, Database, Firestore, Storage)
-- **AI Integration**: Google Gemini Flash 2.0
-- **Styling**: CSS3 with custom properties
-- **Icons**: Lucide React
-- **Routing**: React Router DOM
-- **Build Tool**: Vite
-- **Package Manager**: npm
-- **Deployment**: Vercel
-
-## 📦 Installation & Setup
-
-### Prerequisites
-- Node.js 18+ 
-- npm 9+
-- Firebase project
-- Google Gemini API key
-
-### Quick Start
-```bash
-# Clone the repository
-git clone <repository-url>
-cd dyann
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp env.example .env.local
-# Edit .env.local with your Firebase and Gemini API keys
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-### Development Commands
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run lint         # Run ESLint
-```
-
-## 🌐 Deployment
-
-### Vercel Deployment (Recommended)
-
-1. **Install Vercel CLI**:
-   ```bash
-   npm i -g vercel
-   ```
-
-2. **Deploy to Vercel**:
-   ```bash
-   vercel
-   ```
-
-3. **Set Environment Variables** in Vercel Dashboard:
-   - `VITE_FIREBASE_API_KEY`
-   - `VITE_FIREBASE_AUTH_DOMAIN`
-   - `VITE_FIREBASE_PROJECT_ID`
-   - `VITE_FIREBASE_STORAGE_BUCKET`
-   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
-   - `VITE_FIREBASE_APP_ID`
-   - `VITE_FIREBASE_MEASUREMENT_ID`
-   - `VITE_FIREBASE_DATABASE_URL`
-   - `VITE_GEMINI_API_KEY`
-
-4. **Deploy Firebase Security Rules**:
-   ```bash
-   chmod +x deploy-firebase-rules.sh
-   ./deploy-firebase-rules.sh
-   ```
-
-### Environment Variables
-
-Create a `.env.local` file for local development:
-
-```env
-# Firebase Configuration
-VITE_FIREBASE_API_KEY=your_firebase_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
-VITE_FIREBASE_DATABASE_URL=https://your_project.firebaseio.com
-
-# Google Gemini AI
-VITE_GEMINI_API_KEY=your_gemini_api_key
-```
-
-## 🏗️ Project Structure
-
-```
-dyann/
-├── public/                 # Static assets
-├── src/
-│   ├── components/         # Reusable components
-│   │   ├── Navbar.jsx     # Navigation component
-│   │   ├── Footer.jsx     # Footer component
-│   │   ├── Login.jsx      # Authentication component
-│   │   ├── AISuggestions.jsx # AI insights component
-│   │   └── *.css          # Component styles
-│   ├── contexts/          # React contexts
-│   │   └── AuthContext.jsx # Authentication context
-│   ├── services/          # API services
-│   │   └── geminiService.js # Gemini AI service
-│   ├── pages/             # Page components
-│   │   ├── Home.jsx       # Landing page
-│   │   ├── DyannPage.jsx  # CSV upload page
-│   │   ├── Dashboard.jsx  # Analytics dashboard
-│   │   ├── Assistant.jsx  # AI chat interface
-│   │   ├── Reviews.jsx    # Reviews management
-│   │   └── *.css          # Page styles
-│   ├── App.jsx            # Main app component
-│   ├── App.css            # Global styles
-│   ├── main.jsx           # Entry point
-│   ├── firebase.js        # Firebase configuration
-│   └── index.css          # Base styles
-├── firebase.json          # Firebase configuration
-├── firestore.rules        # Firestore security rules
-├── database.rules.json    # Realtime Database rules
-├── storage.rules          # Storage security rules
-├── vercel.json            # Vercel configuration
-├── package.json           # Dependencies & scripts
-├── vite.config.js         # Vite configuration
-├── deploy-firebase-rules.sh # Firebase rules deployment script
-└── README.md              # Project documentation
-```
-
-## 🔒 Security Features
-
-### Firebase Security Rules
-- **Authentication Required**: All routes require user authentication
-- **User Data Isolation**: Users can only access their own data
-- **Input Validation**: Server-side data validation
-- **Rate Limiting**: API request limits
-
-### Environment Variables
-- **Client-Side**: Only `VITE_` prefixed variables are exposed
-- **Server-Side**: Sensitive keys remain secure
-- **Production**: Variables set in Vercel dashboard
-
-## 🎯 Key Features Implementation
-
-### Authentication System
-- Email/password registration and login
-- Protected routes with automatic redirects
-- User session management
-- Profile management
-
-### AI Integration
-- Gemini Flash 2.0 for intelligent insights
-- Dashboard suggestions and recommendations
-- Chart optimization recommendations
-- Business insights and trend analysis
-
-### CSV Processing
-- File validation (type, size)
-- Drag-and-drop interface
-- Progress indicators
-- Error handling
-
-### Analytics Dashboard
-- Real-time metrics display
-- Interactive chart placeholders
-- Responsive grid layouts
-- Performance optimizations
-- AI-powered insights
-
-### AI Assistant
-- Chat message handling
-- Typing indicators
-- Voice input simulation
-- Quick question suggestions
-
-### Reviews System
-- CRUD operations
-- Sentiment analysis
-- Rating visualization
-- Category management
-
-## 🔧 Customization
-
-### Colors
-Update CSS custom properties in `src/App.css`:
-```css
-:root {
-  --color-fresh: #06b6d4;
-  --color-fresh-light: #22d3ee;
-  --color-fresh-dark: #0891b2;
-}
-```
-
-### Spacing
-Modify spacing scale in CSS variables:
-```css
-:root {
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-}
-```
-
-### Typography
-Update font sizes and weights:
-```css
-:root {
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-}
-```
-
-## 📱 Responsive Design
-
-### Breakpoints
-- **Mobile**: < 480px
-- **Tablet**: 480px - 768px
-- **Desktop**: > 768px
-
-### Mobile Features
-- Collapsible navigation menu
-- Touch-friendly interactions
-- Optimized layouts for small screens
-- Responsive typography scaling
-
-## 🚀 Performance Features
-
-- **Lazy Loading**: Component-based code splitting
-- **CSS Optimization**: Efficient selectors and properties
-- **Image Optimization**: SVG icons for scalability
-- **Bundle Optimization**: Vite build optimizations
-- **Firebase Optimization**: Efficient database queries
-
-## 🔒 Security Considerations
-
-- **Input Validation**: File type and size validation
-- **XSS Prevention**: Safe content rendering
-- **CSRF Protection**: Form submission security
-- **Data Sanitization**: User input cleaning
-- **Authentication**: Secure user sessions
-- **Authorization**: Role-based access control
-
-## 🧪 Testing
-
-### Manual Testing Checklist
-- [ ] User registration and login
-- [ ] Navigation between all pages
-- [ ] Responsive design on different screen sizes
-- [ ] Form validation and submission
-- [ ] File upload functionality
-- [ ] Chat interface interactions
-- [ ] Review management operations
-- [ ] AI suggestions generation
-- [ ] Protected route access
-
-### Browser Compatibility
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## 📈 Future Enhancements
-
-### Planned Features
-- **Real Charts**: Integration with Recharts library
-- **Advanced Analytics**: Machine learning insights
-- **Export Functionality**: PDF/Excel report generation
-- **Real-time Updates**: WebSocket integration
-- **Multi-language Support**: Internationalization
-- **Advanced AI Features**: Predictive analytics
-
-### Technical Improvements
-- **TypeScript**: Add type safety
-- **Testing**: Jest and React Testing Library
-- **State Management**: Redux Toolkit or Zustand
-- **Performance**: React.memo and useMemo optimizations
-- **Accessibility**: ARIA labels and keyboard navigation
-
-## 🤝 Contributing
-
-### Development Guidelines
-1. Follow existing code style and patterns
-2. Use semantic HTML and accessible markup
-3. Maintain responsive design principles
-4. Write clean, documented code
-5. Test across different devices and browsers
-6. Ensure Firebase security rules are updated
-
-### Code Style
-- **Components**: Functional components with hooks
-- **CSS**: BEM methodology with CSS custom properties
-- **Naming**: Descriptive, consistent naming conventions
-- **Comments**: Clear, helpful code documentation
-
-## 📄 License
-
-This project is proprietary software built by Crossconnectors. All rights reserved.
-
-## 📞 Support
-
-For technical support or questions:
-- **Email**: support@crossconnectors.com
-- **Documentation**: [Project Wiki]
-- **Issues**: [GitHub Issues]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18.0.0-blue.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0.0-purple.svg)](https://vitejs.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-10.0.0-orange.svg)](https://firebase.google.com/)
 
 ---
 
-**Built with ❤️ by Crossconnectors**
+## 📋 Table of Contents
 
-*Simplifying sales data analysis with AI intelligence*
+- [Problem Statement](#-problem-statement)
+- [Proposed Solution](#-proposed-solution)
+- [Process Flow](#-process-flow)
+- [Methodology](#-methodology)
+- [Solution Concept & Feasibility](#-solution-concept--feasibility)
+- [Use Cases](#-use-cases)
+- [Technology Stack](#-technology-stack)
+- [Constraints & Challenges](#-constraints--challenges)
+- [Extra Features](#-extra-features)
+- [Screenshots](#-screenshots)
+- [Future Scope](#-future-scope)
+- [Revenue Model](#-revenue-model)
+- [Team Information](#-team-information)
+- [License](#-license)
+
+---
+
+## 🎯 Problem Statement
+
+In today's data-driven business landscape, organizations face significant challenges:
+
+- **📊 Data Analysis Barrier**: Non-technical users struggle to extract insights from CSV/Excel files due to the SQL knowledge requirement
+- **⏰ Time Inefficiency**: Manual data analysis consumes hours that could be spent on strategic decision-making
+- **👥 Resource Dependency**: Businesses rely heavily on data analysts for basic queries, creating bottlenecks
+- **💸 High Costs**: Hiring specialized data analysts is expensive for small to medium businesses
+- **🔍 Limited Accessibility**: Complex data tools exclude stakeholders who need insights but lack technical skills
+
+**The Result**: Valuable business data remains underutilized, decisions are delayed, and opportunities are missed.
+
+---
+
+## 💡 Proposed Solution
+
+### 🤖 Dyann.ai - Text-Based Data Analysis
+
+- **Natural Language Processing**: Ask questions in plain English
+- **Automatic SQL Generation**: Converts queries to optimized SQL statements
+- **Multi-Format Support**: Upload CSV and Excel files seamlessly
+- **Interactive Visualizations**: Charts, tables, and insights in real-time
+- **Conversational Q&A**: Follow-up questions for deeper analysis
+
+### 🎙️ Assista.ai - Voice-Powered Assistant
+
+- **Speech-to-Text**: Ask questions using voice commands
+- **Text-to-Speech**: Receive spoken insights and explanations
+- **Hands-Free Operation**: Perfect for busy professionals
+- **Multi-Modal Output**: Voice responses with visual charts/tables
+
+**Together, they democratize data analysis for everyone! 🚀**
+
+---
+
+## 🔄 Process Flow
+
+### Dyann.ai Workflow
+
+```
+📁 CSV/Excel Upload → 🔍 Data Preprocessing → 🤖 NL Understanding →
+📝 SQL Generation → 🗄️ Database Query → 📊 Visualization → 📋 Insights
+```
+
+### Assista.ai Workflow
+
+```
+🎤 Voice Input → 🎵 Speech-to-Text → 🤖 AI Processing →
+📊 Results Generation → 🔊 Text-to-Speech → 📈 Visual Output
+```
+
+![Workflow Diagram](./assets/workflow.png)
+
+---
+
+## 🛠️ Methodology
+
+### 1. **Data Upload & Preprocessing**
+
+- File validation and format detection
+- Schema analysis and data type inference
+- Data cleaning and normalization
+- Security scanning for sensitive information
+
+### 2. **Natural Language Understanding**
+
+- Query intent classification
+- Entity recognition and extraction
+- Context awareness and conversation memory
+- Ambiguity resolution
+
+### 3. **Query Generation & Execution**
+
+- SQL query construction with best practices
+- Query optimization for performance
+- Error handling and fallback mechanisms
+- Result validation and quality checks
+
+### 4. **Insight Generation & Visualization**
+
+- Automated chart type selection
+- Statistical analysis and trend detection
+- Natural language explanation generation
+- Interactive dashboard creation
+
+### 5. **Security & Privacy**
+
+- Role-based access control (RBAC)
+- Data encryption at rest and in transit
+- Query sanitization and injection prevention
+- Audit logging and compliance
+
+---
+
+## ✅ Solution Concept & Feasibility
+
+### **Technical Feasibility** ✅
+
+- **Proven Technologies**: Leveraging mature AI/ML frameworks
+- **Scalable Architecture**: Microservices-based design
+- **API Integration**: Seamless third-party service integration
+- **Real-time Processing**: Low-latency query execution
+
+### **Economic Feasibility** ✅
+
+- **Cost-Effective**: Reduces need for expensive data analysts
+- **ROI Positive**: Quick implementation and measurable benefits
+- **Subscription Model**: Predictable revenue streams
+- **Market Demand**: Growing need for self-service analytics
+
+### **Operational Feasibility** ✅
+
+- **User-Friendly**: Intuitive interface requiring minimal training
+- **Cross-Platform**: Works on web, mobile, and desktop
+- **24/7 Availability**: Cloud-based deployment
+- **Maintenance-Free**: Automated updates and monitoring
+
+### **Scalability Feasibility** ✅
+
+- **Cloud-Native**: Auto-scaling capabilities
+- **Multi-Tenant**: Efficient resource utilization
+- **Global Distribution**: CDN and edge computing
+- **Performance Optimization**: Caching and query optimization
+
+---
+
+## 🎯 Use Cases & Descriptions
+
+### 🏢 **Business Intelligence**
+
+- **Scenario**: Marketing team analyzing customer behavior data
+- **Query**: "Show me customer retention rates by region for Q3"
+- **Output**: Interactive charts with regional comparisons and trend analysis
+
+### 💰 **Financial Analysis**
+
+- **Scenario**: CFO reviewing quarterly financial statements
+- **Query**: "What's our profit margin trend over the last 12 months?"
+- **Output**: Time-series charts with profitability insights and recommendations
+
+### 📈 **Marketing Analytics**
+
+- **Scenario**: Marketing manager evaluating campaign performance
+- **Query**: "Which marketing channels have the highest ROI?"
+- **Output**: Comparative analysis with cost-benefit breakdown
+
+### 🎓 **Educational Research**
+
+- **Scenario**: University analyzing student performance data
+- **Query**: "How do online vs. in-person students perform?"
+- **Output**: Statistical comparison with significance testing
+
+### 🛒 **E-commerce Optimization**
+
+- **Scenario**: Online store analyzing sales patterns
+- **Query**: "What are our top-selling products by season?"
+- **Output**: Seasonal trend analysis with inventory recommendations
+
+### 🏥 **Healthcare Analytics**
+
+- **Scenario**: Hospital analyzing patient outcomes
+- **Query**: "What factors correlate with readmission rates?"
+- **Output**: Correlation analysis with risk factor identification
+
+---
+
+## 🛠️ Technology Stack
+
+### **Frontend**
+
+- **React 18** - Modern UI framework with hooks and context
+- **Vite** - Lightning-fast build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Recharts** - Composable charting library
+- **React Router** - Client-side routing
+
+### **Backend**
+
+- **Node.js/Bun** - High-performance JavaScript runtime
+- **Express.js** - Minimal web framework
+- **Firebase** - Backend-as-a-Service platform
+- **Firestore** - NoSQL cloud database
+
+### **AI & Machine Learning**
+
+- **OpenAI GPT-4** - Advanced language model for NL understanding
+- **Google Gemini** - Multimodal AI for complex queries
+- **LangChain** - Framework for LLM applications
+- **Natural** - Natural language processing library
+
+### **Database & Storage**
+
+- **Firebase Firestore** - Real-time NoSQL database
+- **Firebase Storage** - File storage for uploads
+- **Firebase Auth** - User authentication and authorization
+
+### **Visualization & UI**
+
+- **Recharts** - Responsive chart components
+- **React Table** - Flexible table component
+- **Framer Motion** - Animation library
+- **Lucide React** - Beautiful icon library
+
+### **Deployment & DevOps**
+
+- **Vercel** - Frontend deployment platform
+- **Firebase Hosting** - Static site hosting
+- **GitHub Actions** - CI/CD pipeline
+- **Docker** - Containerization
+
+---
+
+## ⚠️ Constraints & Challenges
+
+### **Privacy & Security** 🔒
+
+- **Challenge**: Handling sensitive business data
+- **Solution**:
+  - End-to-end encryption
+  - Role-based access control (RBAC)
+  - GDPR/CCPA compliance
+  - Data anonymization options
+
+### **Cost Management** 💰
+
+- **Challenge**: AI API costs for large-scale usage
+- **Solution**:
+  - Query caching and optimization
+  - Tiered pricing models
+  - Batch processing for bulk queries
+  - Local model deployment options
+
+### **Scalability** 📈
+
+- **Challenge**: Handling concurrent users and large datasets
+- **Solution**:
+  - Microservices architecture
+  - Auto-scaling cloud infrastructure
+  - Database sharding and indexing
+  - CDN for global distribution
+
+### **Query Ambiguity** 🤔
+
+- **Challenge**: Interpreting unclear natural language queries
+- **Solution**:
+  - Context-aware conversation memory
+  - Query clarification prompts
+  - Multiple interpretation suggestions
+  - Learning from user feedback
+
+### **Data Quality** 📊
+
+- **Challenge**: Processing inconsistent or dirty data
+- **Solution**:
+  - Automated data validation
+  - Data cleaning algorithms
+  - Quality scoring and alerts
+  - Manual override options
+
+---
+
+## ✨ Extra Features
+
+### 🎙️ **Assista.ai - Voice Assistant**
+
+- **Speech Recognition**: Advanced STT with noise cancellation
+- **Voice Synthesis**: Natural-sounding TTS responses
+- **Multi-Language**: Support for multiple languages
+- **Voice Commands**: Customizable voice shortcuts
+
+### ⭐ **User Feedback System**
+
+- **Rating System**: 1-5 star ratings for queries and responses
+- **Review Module**: Detailed feedback collection
+- **Quality Metrics**: Track accuracy and user satisfaction
+- **Improvement Loop**: AI learns from user feedback
+
+### 💼 **Revenue Model**
+
+- **Free Tier**: Basic features with usage limits
+- **Pro Plan**: Advanced features and higher limits
+- **Enterprise**: Custom solutions and dedicated support
+- **API Access**: Developer-friendly API with usage-based pricing
+
+### 🔐 **Advanced Security**
+
+- **Multi-Factor Authentication**: Enhanced login security
+- **Data Encryption**: AES-256 encryption for all data
+- **Audit Logging**: Comprehensive activity tracking
+- **Compliance**: SOC 2, GDPR, HIPAA compliance options
+
+---
+
+## 📸 Screenshots
+
+### Main Dashboard
+
+![Dashboard Interface](./assets/dashboard.png)
+
+### Data Upload & Analysis
+
+![Data Analysis Workflow](./assets/analysis.png)
+
+### Interactive Charts
+
+![Chart Visualizations](./assets/charts.png)
+
+### Voice Assistant Interface
+
+![Voice Assistant](./assets/voice.png)
+
+### User Reviews & Ratings
+
+![Reviews Module](./assets/reviews.png)
+
+---
+
+## 🚀 Future Scope
+
+### **Enhanced AI Capabilities**
+
+- **Multi-Modal Analysis**: Image and document processing
+- **Predictive Analytics**: Machine learning forecasting
+- **Natural Language Generation**: Automated report writing
+- **Sentiment Analysis**: Understanding data context
+
+### **Platform Expansion**
+
+- **Mobile Apps**: iOS and Android applications
+- **Desktop Integration**: Native desktop applications
+- **API Ecosystem**: Third-party integrations
+- **Marketplace**: Custom visualization templates
+
+### **Advanced Features**
+
+- **Real-time Collaboration**: Multi-user editing
+- **Automated Reports**: Scheduled insights delivery
+- **Data Pipeline Integration**: ETL process automation
+- **Advanced Security**: Blockchain-based data verification
+
+### **Global Reach**
+
+- **Multi-Language Support**: 50+ languages
+- **Regional Compliance**: Local data protection laws
+- **Global CDN**: Sub-100ms response times worldwide
+- **Localization**: Cultural and regional adaptations
+
+---
+
+## 💰 Revenue Model
+
+### **Free Tier** 🆓
+
+- **Price**: $0/month
+- **Features**:
+  - 100 queries per month
+  - Basic visualizations
+  - CSV file support
+  - Community support
+
+### **Pro Plan** ⭐
+
+- **Price**: $29/month
+- **Features**:
+  - 1,000 queries per month
+  - Advanced charts and dashboards
+  - Excel file support
+  - Voice assistant (Assista.ai)
+  - Email support
+
+### **Business Plan** 💼
+
+- **Price**: $99/month
+- **Features**:
+  - 10,000 queries per month
+  - Custom branding
+  - Team collaboration
+  - API access
+  - Priority support
+
+### **Enterprise** 🏢
+
+- **Price**: Custom pricing
+- **Features**:
+  - Unlimited queries
+  - On-premise deployment
+  - Custom integrations
+  - Dedicated support
+  - SLA guarantees
+
+### **API Monetization** 🔌
+
+- **Pay-per-query**: $0.01 per API call
+- **Bulk discounts**: Volume-based pricing
+- **Custom packages**: Tailored for specific use cases
+
+---
+
+## 👥 Team Information
+
+**Project**: Dyann.ai + Assista.ai  
+**Event**: Kurukshetra-25 HackFest  
+**Category**: AI/ML Innovation  
+**Duration**: 48-hour hackathon
+
+### **Team Members**
+
+- **Data Scientists**: AI/ML model development
+- **Full-Stack Developers**: Web application development
+- **UI/UX Designers**: User interface and experience design
+- **DevOps Engineers**: Deployment and infrastructure
+
+### **Mentors & Advisors**
+
+- **Industry Experts**: Domain knowledge guidance
+- **Technical Mentors**: Code review and optimization
+- **Business Mentors**: Market strategy and monetization
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2024 Dyann.ai Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+## 📞 Support
+
+- **Email**: support@dyann.ai
+- **Documentation**: [docs.dyann.ai](https://docs.dyann.ai)
+- **Community**: [Discord](https://discord.gg/dyann-ai)
+- **Issues**: [GitHub Issues](https://github.com/dyann-ai/dyann/issues)
+
+---
+
+<div align="center">
+
+**Made with ❤️ for Kurukshetra-25 HackFest**
+
+[![GitHub stars](https://img.shields.io/github/stars/dyann-ai/dyann?style=social)](https://github.com/dyann-ai/dyann)
+[![GitHub forks](https://img.shields.io/github/forks/dyann-ai/dyann?style=social)](https://github.com/dyann-ai/dyann)
+[![GitHub issues](https://img.shields.io/github/issues/dyann-ai/dyann)](https://github.com/dyann-ai/dyann/issues)
+
+</div>
